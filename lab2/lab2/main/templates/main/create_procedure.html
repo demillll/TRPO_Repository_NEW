@@ -1,0 +1,15 @@
+{% extends "main/index.html" %}
+{%block name %}
+Add procedure
+{%endblock%}
+
+{% block content%}
+<h3>Add procedure</h3>
+<form method="post" >
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit"> Add </button>
+</form>
+
+</form>
+{% endblock%}

@@ -1,0 +1,48 @@
+{% extends "main/index.html" %}
+{%block name %}
+Add doctor
+{%endblock%}
+
+{% block content%}
+<h1>Сверхурочные врачи</h1>
+<form method="GET" action="{% url 'overtime_doctors' %}">
+    <label for="month">Введите месяц:</label>
+    <input type="text" id="month" name="month" placeholder="ГГГГ-ММ" required>
+    <button type="submit">Показать сверхурочных врачей</button>
+</form>
+
+{% if doctors %}
+    <h2>Сверхурочные врачи за {{ month }}</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Стаж</th>
+                <th>Специализация</th>
+                <th>Отработанные часы в месяце</th>
+                <th>Сверхурочные часы</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for doctor in doctors %}
+            <tr>
+                <td>{{ doctor.name }}</td>
+                <td>{{ doctor.stage }}</td>
+                <td>{{ doctor.specialization }}</td>
+                <td>{{ doctor.hours_worked_month }}</td>
+                <td>{{ doctor.overtime }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3"></td>
+                <th>Общая переработка</th>
+                <td>{{ total_overtime }}</td>
+            </tr>
+        </tfoot>
+    </table>
+{% else %}
+    <p>Пожалуйста, укажите месяц.</p>
+{% endif %}
+{%endblock%}

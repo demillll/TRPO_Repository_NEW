@@ -1,0 +1,21 @@
+{% extends "main/index.html" %}
+{%block name %}
+<h3>List of doctors<h3>
+  <p> ____________________________________</p>
+{%endblock%}
+
+{% block content%}
+<h3>{{name}}</h3>
+  <ul>
+      {% for el in main %}
+      <div>
+        <h3> Name: {{el.name }}</h3>
+        <p> Stage: {{ el.stage }}</p>
+        <p> Specialization: {{ el.specialization }}</p>
+        <p> ___________________________</p>
+      </div>
+      {% endfor%}
+</form>
+{% endblock%}
+
+

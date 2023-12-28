@@ -1,0 +1,28 @@
+{% extends "main/index.html" %}
+
+{% block name %}
+  <p>List of doctors</p>
+  <p>____________________________________</p>
+{% endblock %}
+
+{% block content %}
+  <div>
+    <h4>Doctors</h4>
+    <p>###</p>
+    {% for el in main %}
+      <div>
+        <p>Id: {{ el.id }}</p>
+        <p>Name: {{ el.name }}</p>
+        <p>Stage: {{ el.stage }}</p>
+        <p>Specialization: {{ el.specialization }}</p>
+        <p>Month: {{ el.month }}</p>
+        <p>Hours worked month: {{ el.hours_worked_month }}</p>
+        {% if request.user.is_staff %}
+          <a href="http://127.0.0.1:8000/{{ el.id }}/doctor_update">Изменить /</a> 
+          <a href="http://127.0.0.1:8000/{{ el.id }}/doctor_delete">Удалить</a>
+        {% endif %}
+        <p>_____________________</p>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

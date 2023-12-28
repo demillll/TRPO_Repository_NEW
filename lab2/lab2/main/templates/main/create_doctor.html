@@ -1,0 +1,13 @@
+{% extends "main/index.html" %}
+{%block name %}
+Add doctor
+{%endblock%}
+
+{% block content%}
+<h3>Add doctor</h3>
+<form method="post" >
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit"> Add </button>
+</form>
+{% endblock%}

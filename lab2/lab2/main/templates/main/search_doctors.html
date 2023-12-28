@@ -1,0 +1,26 @@
+{% extends "main/index.html" %}
+
+{%block name %}
+<p>Search Doctors</p>
+  <p> ____________________________________</p>
+{%endblock%}
+
+{% block content%}
+    <div>
+      <h4>Doctors who worked above the norm (> 40 hours)</h4>
+      <p> ###</p>
+      {% for el in main %}
+        <div>
+            <p> Id: {{el.id }}</p>
+            <p> Name: {{el.name }}</p>
+            <p> Stage: {{ el.stage }}</p>
+            <p> Specialization: {{ el.specialization }}</p>
+            <p> Hours worked: {{ el.hours_worked }}</p>
+            <p> _____________________</p>
+            {% empty %}
+            <li>No doctors found</li>
+            <p> _____________________</p>
+        </div>
+      {% endfor %}
+    </div>
+{% endblock%}

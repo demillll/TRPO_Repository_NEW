@@ -1,0 +1,14 @@
+{% extends "main/index.html" %}
+{%block name %}
+Delete doctor
+{%endblock%}
+
+{% block content%}
+<h3>Delete doctor?</h3>
+<form method="post" >
+    {% csrf_token %}
+    <button type="submit"> Delete </button>
+</form>
+
+</form>
+{% endblock%}
